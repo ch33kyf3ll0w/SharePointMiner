@@ -141,7 +141,7 @@ Param(
   [String]$RelativeFileUrl,
  
   [Parameter(Mandatory=$True)]
-  [String]$DownloadPath
+  [String]$DownloadPath,
  
   [Parameter(Mandatory=$True)]
   [String]
@@ -218,7 +218,7 @@ Param(
   [String]$Password, 
  
   [Parameter(Mandatory=$True)]
-  [String]$RelativeFolderUrl
+  [String]$RelativeFolderUrl,
  
   [Parameter(Mandatory=$True)]
   [String]
