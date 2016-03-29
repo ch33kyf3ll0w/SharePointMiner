@@ -1,5 +1,5 @@
 # SharePointMiner
-SharePointMiner was created to address a need to programmtically search SharePoint sites for interesting documents during Red Team assesmsents.
+SharePointMiner was created to address a need to programmatically search SharePoint sites for interesting documents during Red Team assessments.
 
 
 ## Current Functions:
