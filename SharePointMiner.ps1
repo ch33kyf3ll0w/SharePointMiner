@@ -1,6 +1,3 @@
-Add-Type –Path "C:\Users\ch33kyf3ll0w\Desktop\PowerShell Projects\SharePoint\Microsoft.SharePoint.Client.dll" 
-Add-Type –Path "C:\Users\ch33kyf3ll0w\Desktop\PowerShell Projects\SharePoint\Microsoft.SharePoint.Client.Runtime.dll" 
-
 <#
 .SYNOPSIS
 SharePointMiner was created to address a need to programmtically search SharePoint sites for interesting documents during Red Team assessments.
@@ -42,19 +39,31 @@ Function Invoke-SPSearch(){
  
 Param(
   [Parameter(Mandatory=$True)]
-  [String]$SPUrl,
+  [String]
+  $SPUrl,
  
   [Parameter(Mandatory=$True)]
-  [String]$UserName,
+  [String]
+  $UserName,
  
   [Parameter(Mandatory=$True)]
-  [String]$Password, 
+  [String]
+  $Password, 
  
   [Parameter(Mandatory=$True)]
-  [String]$QueryText
+  [String]
+  $QueryText,
+  
+  [Parameter(Mandatory=$True)]
+  [String]
+  $DLLFolderPath
  
 )
-    #Builds out full query url and assigns to $Url
+   #Add the assembly type for the API access
+   Add-Type -Path "$DLLFolderPath\Microsoft.SharePoint.Client.dll"
+   Add-Type -Path "$DLLFolderPath\Microsoft.SharePoint.Client.Runtime.dll"
+   
+   #Builds out full query url and assigns to $Url
    $Url = $SPUrl + "/_api/search/query?querytext='" + $QueryText + "'"
 
  
@@ -134,7 +143,14 @@ Param(
   [Parameter(Mandatory=$True)]
   [String]$DownloadPath
  
+  [Parameter(Mandatory=$True)]
+  [String]
+  $DLLFolderPath
+ 
 )
+   #Add the assembly type for the API access
+   Add-Type -Path "$DLLFolderPath\Microsoft.SharePoint.Client.dll"
+   Add-Type -Path "$DLLFolderPath\Microsoft.SharePoint.Client.Runtime.dll"
   
    $Url = $SPUrl + "/_api/web/GetFileByServerRelativeUrl('" + $RelativeFileUrl + "')"
 
@@ -204,7 +220,14 @@ Param(
   [Parameter(Mandatory=$True)]
   [String]$RelativeFolderUrl
  
+  [Parameter(Mandatory=$True)]
+  [String]
+  $DLLFolderPath
+ 
 )
+   #Add the assembly type for the API access
+   Add-Type -Path "$DLLFolderPath\Microsoft.SharePoint.Client.dll"
+   Add-Type -Path "$DLLFolderPath\Microsoft.SharePoint.Client.Runtime.dll"
  
    #Create URL for query
    $Url = $SPUrl + "/_api/web/GetFolderByServerRelativeUrl('" + $RelativeFolderUrl + "')/Files"
