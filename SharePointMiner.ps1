@@ -55,10 +55,6 @@ The SharePoint user's password.
 .PARAMETER QueryText
 
 Text you wish to query the SharePoint for, ie. Title:ssn* 
-
-.PARAMETER DLLFolderPath
-
-The folder path to the location of the required SharePoint DLLS, ie. C:\Users\admin\tools
    
 .EXAMPLE  
 PS C:\>Invoke-SPSearch -SPUrl https://exist.sharepoint.com -UserName andrew.bonstrom@exist.sharepoint.com -Password n0pa$$w0rd1 -QueryText "Title:ssn*" | Format-Table -AutoSize    
@@ -80,11 +76,7 @@ Param(
  
   [Parameter(Mandatory=$True)]
   [String]
-  $QueryText,
-  
-  [Parameter(Mandatory=$True)]
-  [String]
-  $DLLFolderPath
+  $QueryText
  
 )
    
@@ -147,10 +139,6 @@ Path to the file you wish to download, ie. /Shared Documents/Folder/File.docx
 
 Local directory you wish to place the downloaded file into.
 
-.PARAMETER DLLFolderPath
-
-The folder path to the location of the required SharePoint DLLS, ie. C:\Users\admin\tools
-
 .EXAMPLE  
  PS C:\> Get-SPFile -SPUrl  https://exist.sharepoint.com -UserName andrew.bonstrom@exist.sharepoint.com -Password n0pa$$w0rd1 -RelativeFileUrl '/Shared Documents/Folder/File To Download' -DownloadPath 'c:\downloads'     
 #>
@@ -170,11 +158,7 @@ Param(
   [String]$RelativeFileUrl,
  
   [Parameter(Mandatory=$True)]
-  [String]$DownloadPath,
- 
-  [Parameter(Mandatory=$True)]
-  [String]
-  $DLLFolderPath
+  [String]$DownloadPath
  
 )
 
@@ -229,10 +213,6 @@ The SharePoint user's password.
 
 Relative Url of the folder you wish to list the contents of.  
 
-.PARAMETER DLLFolderPath
-
-The folder path to the location of the required SharePoint DLLS, ie. C:\Users\admin\tools
-
 .EXAMPLE  
 PS C:\>Get-SPFolderContentList -SPUrl  https://exist.sharepoint.com -UserName andrew.bonstrom@exist.sharepoint.com -Password n0pa$$w0rd -RelativeFolderUrl "/Shared Documents/SocialSecurityNumbers"| format-table -AutoSize      
 #>
@@ -249,11 +229,7 @@ Param(
   [String]$Password, 
  
   [Parameter(Mandatory=$True)]
-  [String]$RelativeFolderUrl,
- 
-  [Parameter(Mandatory=$True)]
-  [String]
-  $DLLFolderPath
+  [String]$RelativeFolderUrl
  
 )
  
