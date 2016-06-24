@@ -6,3 +6,5 @@ SharePointMiner was created to address a need to programmatically search SharePo
     Invoke-SPSearch             -   Searches a SharePoint site for files based on searchterms.
     Get-SPFile                  -   Retrieves files from a SharePoint site based on provided relative url.
     Get-SPFolderContentList     -   Retrieves folder file listing based on provided relative url.
+    
+DLL files necessary for this script are now embedded within in order to make the script more portable.
